@@ -32,6 +32,8 @@ wss.on("connection", (ws) => {
   ws.on("message", (data: messageInterface) => {
     const message: messageInterface = JSON.parse(data.toString());
 
+    console.log("Message received", message);
+
     const existedRoom = rooms.find(
       (room) => room.roomId === message.payload.roomId
     );
